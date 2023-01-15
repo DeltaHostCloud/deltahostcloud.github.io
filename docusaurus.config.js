@@ -5,7 +5,7 @@
 const config = {
   title: 'DeltaDocs',
   tagline: 'Dinosaurs are cool',
-  url: 'deltahostcloud.github.io',
+  url: 'https://deltahostcloud.github.io',
   baseUrl: '/',
   onBrokenLinks: 'ignore', //'throw',
   onBrokenMarkdownLinks: 'warn',
