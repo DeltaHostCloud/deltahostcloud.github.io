@@ -1,0 +1,56 @@
+---
+sidebar_position: 1
+---
+# Consola
+
+Te damos la bienvenida a la guía del uso del panel.
+## Acceso a tu panel
+
+Puedes acceder a tu panel desde el siguiente enlace: https://panel.deltahost.cloud.
+
+:::note NOTA
+Los datos de acceso del panel y de área de cliente son diferentes.
+:::
+![consola](/img/consola.png)
+
+Le recomendamos solo usar el "Forzar Apagado" en caso de que el servidor no responda.
+## Consumo del servidor
+![consola3](/img/consola3.png)
+
+`CPU` hace referencia al uso de CPU en vivo.<br/>
+`Memoria` hace referencia al uso de memoria en vivo. Probablemente veas el consumo casi siempre al máximo, esto es debido a que aplicamos las flags aikars para mejor funcionamiento en el uso de RAM/CPU. [Pulsa aquí para más información](#por-qué-mi-servidor-está-casi-siempre-consume-el-máximo-de-ram).<br/>
+`Disco` hace referencia al uso de almacenamiento en vivo.
+
+## Consola de juego y control del servidor
+![consola4](/img/consola4.png)
+
+En este apartado puedes ver toda la información que arroja tu consola. Cuando ejecutes comandos, recuerda quitar el **slash "/"**.
+
+## ¿Por qué mi servidor está casi siempre consume el máximo de RAM?
+
+Como se mencionó antes, aplicamos las Aikars Flags. Son una gran manera de optimizar el rendimiento de tu servidor, y te permitirán exprimir hasta la última gota de rendimiento de tu CPU y RAM.
+
+Si deseas cambiar tus flags, nosotros te ofrecemos 2 herramientas el cual te facilitarán el cambio. Estas se encuentran en el apartado "Startup".
+
+![aikars](/img/aikars.png)
+
+Como se mencionó, por defecto vienen las Aikars Flags. Las cuales son:
+
+```jsx
+--add-modules=jdk.incubator.vector -XX:+UseG1GC -XX:+ParallelRefProcEnabled 
+-XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC 
+-XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 
+-XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 
+-XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 
+-Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true 
+-XX:G1NewSizePercent=40 -XX:G1MaxNewSizePercent=50 -XX:G1HeapRegionSize=16M 
+-XX:G1ReservePercent=15
+```
+
+Definir el uso de RAM.
+
+![aikars2](/img/aikars2.png)
+
+Esta variable hace que el servidor consuma un porcentaje de la RAM asignada. Por defecto usa el 80% de la RAM. Por ejemplo, si tu servidor tiene 12,288 de RAM, la variable asignará 10,240 y el resto para uso de tu panel.
+
+Recomendamos que no asignes el 100% si tu servidor está en un entorno de recursos compartidos. Debes dejar algo de espacio para los gastos generales de tu panel. en los que incurre la JVM cuando se ejecuta utilizando las banderas de Aikar. La causa exacta de esta sobrecarga es a veces discutida, pero en general se puede atribuir a buffers nativos, sobrecarga de GC, y en algunos casos raros, fugas de memoria.
