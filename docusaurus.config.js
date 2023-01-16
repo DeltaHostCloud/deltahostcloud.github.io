@@ -1,4 +1,5 @@
 // @ts-check
+// Note: type annotations allow type checking and IDEs autocompletion
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -13,6 +14,7 @@ const config = {
   projectName: "deltahostcloud.github.io",
   presets: [
     [
+      "classic",
       {
         docs: {
           routeBasePath: "/",
@@ -41,9 +43,6 @@ const config = {
   ],
 
   themeConfig: {
-    theme: {
-      customCss: [require.resolve("./src/css/custom.css")],
-    },
     colorMode: {
       defaultMode: "dark",
       disableSwitch: true,
