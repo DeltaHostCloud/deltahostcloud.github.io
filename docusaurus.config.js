@@ -1,92 +1,85 @@
 // @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'DeltaDocs',
-  tagline: 'Dinosaurs are cool',
-  url: 'https://deltahostcloud.github.io',
-  baseUrl: '/',
-  onBrokenLinks: 'ignore', //'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-  organizationName: 'DeltaHost-project', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
-
-
+  title: "DeltaDocs",
+  tagline: "Dinosaurs are cool",
+  url: "https://deltahostcloud.github.io",
+  baseUrl: "/",
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/favicon.ico",
+  organizationName: "DeltaHostCloud",
+  projectName: "deltahostcloud.github.io",
   presets: [
     [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
-      ({
+      {
         docs: {
-          routeBasePath: '/',
-          sidebarPath: require.resolve('./sidebars.js'),
+          routeBasePath: "/",
+          sidebarPath: require.resolve("./sidebars.js"),
         },
         blog: {
           showReadingTime: true,
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: require.resolve("./src/css/custom.css"),
         },
-      }),
+      },
     ],
   ],
 
   plugins: [
     [
-      '@docusaurus/plugin-content-docs',
+      "@docusaurus/plugin-content-docs",
       {
-        id: 'billing',
-        path: 'billing',
-        routeBasePath: 'billing',
-        sidebarPath: require.resolve('./sidebarsbilling.js'),
+        id: "billing",
+        path: "billing",
+        routeBasePath: "billing",
+        sidebarPath: require.resolve("./sidebarsbilling.js"),
       },
     ],
   ],
 
-  themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      theme: {
-        customCss: [require.resolve('./src/css/custom.css')],
+  themeConfig: {
+    theme: {
+      customCss: [require.resolve("./src/css/custom.css")],
+    },
+    colorMode: {
+      defaultMode: "dark",
+      disableSwitch: true,
+      respectPrefersColorScheme: true,
+    },
+    navbar: {
+      logo: {
+        alt: "My Site Logo",
+        src: "img/logo.svg",
       },
-      colorMode: {
-        defaultMode: 'dark',
-        disableSwitch: true,
-        respectPrefersColorScheme: true,
+      items: [
+        {
+          type: "doc",
+          docId: "intro",
+          position: "left",
+          label: "Panel",
         },
-      navbar: {
-        logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+        {
+          docId: "billing",
+          position: "left",
+          label: "Billing",
+          to: "/billing/test",
         },
-        items: [
-          {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'Panel',
-          },
-          {
-            docId: 'billing',
-            position: 'left',
-            label: 'Billing',
-            to: '/billing/test'
-          },
-          {
-            to: '/blog',
-            label: 'Anuncios',
-            position: 'left'
-          },
-          {
-            href: "https://discord.gg/vD8drXYuxn",
-            className: "header-discord-link header-discord-link",
-            position: "right",
-          },
-        ],
-      },
-    }),
+        {
+          to: "/blog",
+          label: "Anuncios",
+          position: "left",
+        },
+        {
+          href: "https://discord.gg/vD8drXYuxn",
+          className: "header-discord-link header-discord-link",
+          position: "right",
+        },
+      ],
+    },
+  },
 };
 
 module.exports = config;
